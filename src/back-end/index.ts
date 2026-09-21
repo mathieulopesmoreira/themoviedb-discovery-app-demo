@@ -1,5 +1,7 @@
 import express from 'express';
 import { tmdbAccessToken } from './config';
+import { toSupportedMovie } from './utils';
+import type { MoviesApiResponse, TmdbMoviesRawResponse } from './schemas/MoviesTypes';
 
 
 // Create a new express application instance

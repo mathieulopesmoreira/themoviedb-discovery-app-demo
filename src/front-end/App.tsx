@@ -29,7 +29,7 @@ export default function App() {
 
   return (
     <div>
-      <h1>Popular Movies</h1>
+      <h1>Films populaires</h1>
       {movies ? (
         <ul>
           {movies.map((movie) => (

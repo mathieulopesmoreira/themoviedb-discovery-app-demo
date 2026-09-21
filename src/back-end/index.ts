@@ -1,5 +1,11 @@
 import express from 'express';
 import { tmdbAccessToken } from './config';
+import { DEFAULT_LANGUAGE, DEFAULT_PAGE, DEFAULT_REGION } from './constants';
+import { toSupportedMovie } from './utils';
+import type {
+  MoviesApiResponse,
+  TmdbMoviesRawResponse,
+} from './schemas/MoviesTypes';
 
 // Create a new express application instance
 const app = express();
@@ -21,17 +27,30 @@ app.get('/api/health', (_req: express.Request, res: express.Response) => {
 // Define a route handler for fetching popular movies from TMDB API
 app.get(
   '/api/movies/popular',
-  async (_req: express.Request, res: express.Response) => {
+  async (req: express.Request, res: express.Response) => {
     try {
-      const response = await fetch(
-        'https://api.themoviedb.org/3/movie/popular',
-        {
-          headers: {
-            Authorization: `Bearer ${tmdbAccessToken}`,
-            'Content-Type': 'application/json;charset=utf-8',
-          },
+      const language =
+        typeof req.query.language === 'string'
+          ? req.query.language
+          : DEFAULT_LANGUAGE;
+      const page =
+        typeof req.query.page === 'string' ? req.query.page : DEFAULT_PAGE;
+      const region =
+        typeof req.query.region === 'string'
+          ? req.query.region
+          : DEFAULT_REGION;
+      const url = new URL('https://api.themoviedb.org/3/movie/popular');
+
+      url.searchParams.set('language', language);
+      url.searchParams.set('page', page);
+      url.searchParams.set('region', region);
+
+      const response = await fetch(url, {
+        headers: {
+          Authorization: `Bearer ${tmdbAccessToken}`,
+          'Content-Type': 'application/json;charset=utf-8',
         },
-      );
+      });
 
       if (!response.ok) {
         throw new Error(

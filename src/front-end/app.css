@@ -1,0 +1,65 @@
+.app-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.app-header {
+  margin-bottom: 2rem;
+}
+
+.app-header h1 {
+  margin: 0;
+}
+
+.app-header h2 {
+  color: #64748b;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.movie-grid li {
+  min-width: 0;
+}
+
+.movie-card {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background: #fff;
+  box-shadow: 0 4px 14px rgb(15 23 42 / 12%);
+}
+
+.movie-poster {
+  width: 120px;
+  flex: 0 0 120px;
+  object-fit: cover;
+}
+
+.movie-card__content {
+  padding: 1rem;
+}
+
+.movie-card__content h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.movie-card__content p,
+.status-message {
+  color: #64748b;
+}
+
+.status-message {
+  text-align: center;
+}

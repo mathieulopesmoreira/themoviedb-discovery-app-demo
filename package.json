@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "keywords": [],
-  "homepage": "https://github.com/mathieulopesmoreira/themoviedb-discovery-app#readme",
+  "homepage": "https://github.com/mathieulopesmoreira/themoviedb-discovery-app-demo#readme",
   "bugs": {
-    "url": "https://github.com/mathieulopesmoreira/themoviedb-discovery-app/issues"
+    "url": "https://github.com/mathieulopesmoreira/themoviedb-discovery-app-demo/issues"
   },
   "license": "ISC",
   "author": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mathieulopesmoreira/themoviedb-discovery-app.git"
+    "url": "git+https://github.com/mathieulopesmoreira/themoviedb-discovery-app-demo.git"
   },
   "type": "module",
   "main": "index.js",

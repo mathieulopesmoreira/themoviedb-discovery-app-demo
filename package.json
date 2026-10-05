@@ -16,7 +16,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "build": "vite build && esbuild api/index.ts --bundle --platform=node --format=esm --packages=external --outfile=api/index.js",
+    "build": "vite build",
     "test": "vitest run --coverage",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:client": "vite",
@@ -45,7 +45,6 @@
     "@vitest/coverage-v8": "^5.0.1",
     "concurrently": "^10.0.5",
     "devmoji": "^2.3.0",
-    "esbuild": "^0.28.2",
     "husky": "^9.1.7",
     "lint-staged": "^17.5.1",
     "oxfmt": "^0.70.0",

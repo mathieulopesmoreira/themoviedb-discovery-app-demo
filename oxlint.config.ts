@@ -9,5 +9,5 @@ export default defineConfig({
   env: {
     builtin: true,
   },
-  ignorePatterns: ['dist/**', 'coverage/**', 'api/index.js'],
+  ignorePatterns: ['dist/**', 'coverage/**', 'api/**'],
 });

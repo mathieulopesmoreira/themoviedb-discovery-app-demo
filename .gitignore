@@ -1,5 +1,6 @@
 node_modules/
-coverage
+dist/
+coverage/
 .env
 .env.dev
-.vercel
+.vercel/

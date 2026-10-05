@@ -1,6 +1,6 @@
 import express from 'express';
-import { registerHealthApi } from '../src/back-end/health-api';
-import { registerMoviesApi } from '../src/back-end/movies-api';
+import { registerHealthApi } from '../src/back-end/health-api.js';
+import { registerMoviesApi } from '../src/back-end/movies-api.js';
 
 const app = express();
 

@@ -9,8 +9,12 @@ import MovieItem from '../components/MovieItem';
 
 export default function MoviesListPage() {
   const [movies, setMovies] = useState<Movie[] | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [reloadIndex, setReloadIndex] = useState(0);
 
   useEffect(() => {
+    let ignore = false;
+
     const searchParams = new URLSearchParams(window.location.search);
     const language = searchParams.get('language') || DEFAULT_LANGUAGE;
     const page = searchParams.get('page') || DEFAULT_PAGE;
@@ -21,11 +25,32 @@ export default function MoviesListPage() {
     searchParams.set('region', region);
 
     fetch(`/api/movies/popular?${searchParams.toString()}`)
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Erreur serveur (${response.status})`);
+        }
+        return response.json();
+      })
       .then((data) => {
-        setMovies(data.results);
+        if (!ignore) {
+          setMovies(data.results);
+          setError(null);
+        }
+      })
+      .catch((err: unknown) => {
+        if (!ignore) {
+          const message =
+            err instanceof Error
+              ? err.message
+              : 'Impossible de charger les films';
+          setError(message);
+        }
       });
-  }, []);
+
+    return () => {
+      ignore = true;
+    };
+  }, [reloadIndex]);
 
   return (
     <main className="app-shell">
@@ -37,16 +62,34 @@ export default function MoviesListPage() {
         </h2>
       </header>
       <section>
-        {movies ? (
-          <ul className="movie-grid">
-            {movies.map((movie) => (
-              <li key={movie.id}>
-                <article>
-                  <MovieItem movie={movie} />
-                </article>
-              </li>
-            ))}
-          </ul>
+        {error ? (
+          <div className="status-message">
+            <p>Une erreur est survenue : {error}</p>
+            <button
+              type="button"
+              onClick={() => {
+                setMovies(null);
+                setError(null);
+                setReloadIndex((idx) => idx + 1);
+              }}
+            >
+              Réessayer
+            </button>
+          </div>
+        ) : movies ? (
+          movies.length > 0 ? (
+            <ul className="movie-grid">
+              {movies.map((movie) => (
+                <li key={movie.id}>
+                  <article aria-label={`Film ${movie.title}`}>
+                    <MovieItem movie={movie} />
+                  </article>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="status-message">Aucun film trouvé.</p>
+          )
         ) : (
           <p className="status-message">Loading...</p>
         )}

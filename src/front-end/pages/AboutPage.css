@@ -129,6 +129,7 @@
   color: #f7fffc;
   font-weight: 750;
   text-decoration: none;
+  transition: all 0.15s ease;
 }
 
 .about-repository a:hover {
@@ -140,6 +141,57 @@
   outline: 3px solid #ffe07d;
   outline-offset: 4px;
 }
+
+@media (prefers-color-scheme: dark) {
+  .about-hero h1 {
+    color: #f8fafc;
+  }
+
+  .about-eyebrow,
+  .about-section-label {
+    color: #38bdf8;
+  }
+
+  .about-intro {
+    color: #cbd5e1;
+  }
+
+  .about-story {
+    border-top-color: #334155;
+  }
+
+  .about-story h2,
+  .about-stack h2 {
+    color: #f8fafc;
+  }
+
+  .about-story > p {
+    color: #94a3b8;
+  }
+
+  .about-stack {
+    border-top-color: #334155;
+  }
+
+  .about-stack li {
+    border-color: #334155;
+    background: #1e293b;
+  }
+
+  .about-stack strong {
+    color: #f8fafc;
+  }
+
+  .about-stack span {
+    color: #94a3b8;
+  }
+
+  .about-repository {
+    background: #0f172a;
+    border-color: #334155;
+  }
+}
+
 @media (max-width: 600px) {
   .about-page {
     padding-top: 34px;

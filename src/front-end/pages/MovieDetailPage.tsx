@@ -25,10 +25,13 @@ export default function MovieDetailPage() {
   return (
     <main className="app-shell">
       <header className="app-header">
-        <h1>Détails du film</h1>
-        <p>
-          <Link to="/movies">← Retour vers les films populaires</Link>
+        <p style={{ margin: '0 0 1rem' }}>
+          <Link to="/movies" className="back-link">
+            <span aria-hidden="true">←</span>
+            <span>Retour vers les films populaires</span>
+          </Link>
         </p>
+        <h1>Détails du film</h1>
       </header>
       <section>
         {movie ? (

@@ -2,18 +2,31 @@
   --line: #e2e8f0;
   --surface: #ffffff;
   --ink-strong: #0f172a;
+  --ink-muted: #56627a;
+  --pill-bg: #f8fafc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --line: #334155;
+    --surface: #1e293b;
+    --ink-strong: #f8fafc;
+    --ink-muted: #94a3b8;
+    --pill-bg: #0f172a;
+  }
 }
 
 .movie-detail-card {
   display: grid;
   grid-template-columns: minmax(260px, 420px) minmax(0, 1fr);
-  gap: 24px;
+  gap: 32px;
   align-items: start;
-  padding: 20px;
+  padding: 24px;
   border: 1px solid var(--line);
   border-radius: 24px;
   background: var(--surface);
-  box-shadow: 0 16px 44px rgb(25 35 58 / 14%);
+  box-shadow: 0 16px 44px rgb(0 0 0 / 12%);
+  color: var(--ink-strong);
 }
 
 .movie-detail-hero-container {
@@ -27,10 +40,11 @@
   object-fit: cover;
   border-radius: 18px;
   background: #dbe5f4;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 20%);
 }
 
 .movie-detail-hero-placeholder {
-  background: linear-gradient(135deg, #cdd9eb, #e7edf7);
+  background: linear-gradient(135deg, #1e293b, #334155);
 }
 
 .movie-detail-copy {
@@ -45,13 +59,13 @@
     600 12px/1.4 'Avenir Next',
     'Trebuchet MS',
     sans-serif;
-  color: #2a6f77;
+  color: #38bdf8;
 }
 
 .movie-detail-copy h1 {
   margin: 0 0 10px;
   font:
-    700 44px/1.02 'Avenir Next',
+    700 40px/1.1 'Avenir Next',
     'Trebuchet MS',
     sans-serif;
   letter-spacing: -0.03em;
@@ -60,21 +74,25 @@
 
 .movie-detail-tagline {
   margin: 0 0 16px;
-  font-size: 20px;
-  line-height: 1.4;
-  color: #56627a;
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--ink-muted);
 }
 
 .movie-detail-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 16px;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 0;
 }
 
 .movie-detail-meta div {
   display: flex;
-  gap: 4px;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
 }
 
 .movie-detail-meta dt,
@@ -82,11 +100,19 @@
   margin: 0;
 }
 
+.movie-detail-meta dt {
+  color: var(--ink-muted);
+}
+
+.movie-detail-meta dd {
+  font-weight: 700;
+}
+
 .movie-detail-meta div,
 .movie-detail-genres li {
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: #ffffffb8;
+  padding: 8px 14px;
+  border-radius: 9999px;
+  background: var(--pill-bg);
   border: 1px solid var(--line);
   font:
     600 13px/1 'Avenir Next',
@@ -100,18 +126,18 @@
   flex-wrap: wrap;
   gap: 10px;
   padding: 0;
-  margin: 0 0 20px;
+  margin: 0 0 24px;
   list-style: none;
 }
 
 .movie-detail-section + .movie-detail-section {
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
 .movie-detail-section h2 {
-  margin: 0 0 8px;
+  margin: 0 0 10px;
   font:
-    650 20px/1.2 'Avenir Next',
+    650 1.25rem/1.2 'Avenir Next',
     'Trebuchet MS',
     sans-serif;
   color: var(--ink-strong);
@@ -120,16 +146,18 @@
 .movie-detail-section p {
   margin: 0;
   line-height: 1.7;
+  color: var(--ink-muted);
+  font-size: 1.02rem;
 }
 
 @media (max-width: 800px) {
   .movie-detail-card {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 20px;
     padding: 16px;
   }
 
   .movie-detail-copy h1 {
-    font-size: 34px;
+    font-size: 30px;
   }
 }

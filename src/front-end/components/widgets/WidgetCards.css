@@ -1,0 +1,274 @@
+.widget-card {
+  background: var(--card-bg, #ffffff);
+  border: 1px solid var(--border-color, rgba(148, 163, 184, 0.25));
+  border-radius: 18px;
+  padding: 1.4rem 1.6rem;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+  box-sizing: border-box;
+}
+
+.widget-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
+}
+
+.widget-stat-card {
+  min-height: 140px;
+  justify-content: space-between;
+}
+
+.widget-label {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted, #64748b);
+  letter-spacing: 0.01em;
+}
+
+.widget-subhead {
+  margin: 0 0 0.4rem 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-color, #0f172a);
+}
+
+.widget-value-heading {
+  margin: 0 0 0.4rem 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-color, #0f172a);
+  line-height: 1.25;
+}
+
+.widget-subhead-count {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-muted, #64748b);
+}
+
+.widget-subhead-count strong {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-primary-dark, #0284c7);
+}
+
+.widget-value-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+}
+
+.widget-value {
+  font-size: 1.95rem;
+  font-weight: 800;
+  color: var(--color-primary-dark, #0284c7);
+  letter-spacing: -0.02em;
+}
+
+.widget-unit {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-muted, #64748b);
+}
+
+.widget-pill-badge {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-primary-dark, #0369a1);
+  background: rgba(14, 165, 233, 0.12);
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  border-radius: 9999px;
+  width: fit-content;
+}
+
+/* Movie Horizontal Card */
+.widget-movie-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1rem 1.4rem;
+  min-height: 140px;
+}
+
+.widget-movie-poster {
+  width: 70px;
+  height: 105px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--border-color, #e2e8f0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.widget-movie-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.widget-poster-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  background: rgba(148, 163, 184, 0.15);
+}
+
+.widget-movie-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.widget-movie-title {
+  margin: 0 0 0.2rem 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-color, #0f172a);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.widget-movie-year {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted, #64748b);
+}
+
+.widget-movie-highlight {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-muted, #64748b);
+}
+
+.widget-movie-highlight strong {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--color-primary-dark, #0284c7);
+}
+
+.highlight-roi.positive strong {
+  color: #059669;
+}
+
+.highlight-roi.negative strong {
+  color: #dc2626;
+}
+
+.highlight-pop strong {
+  color: var(--color-primary-dark, #0284c7);
+}
+
+.highlight-score strong {
+  color: #d97706;
+}
+
+/* Skeleton Loading */
+.widget-skeleton {
+  width: 60%;
+  height: 2.2rem;
+  background: linear-gradient(
+    90deg,
+    rgba(148, 163, 184, 0.15) 25%,
+    rgba(148, 163, 184, 0.28) 50%,
+    rgba(148, 163, 184, 0.15) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-pulse 1.5s infinite;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+.widget-skeleton-line {
+  height: 1rem;
+  width: 90%;
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.widget-skeleton-line.short {
+  width: 40%;
+}
+
+.widget-skeleton-line.medium {
+  width: 65%;
+}
+
+@keyframes skeleton-pulse {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.widget-error-text {
+  color: #dc2626;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .widget-card {
+    --card-bg: #111a2e;
+    --border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  }
+
+  .widget-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  }
+
+  .widget-label {
+    --text-muted: #94a3b8;
+  }
+
+  .widget-subhead,
+  .widget-value-heading,
+  .widget-movie-title {
+    --text-color: #f1f5f9;
+  }
+
+  .widget-value,
+  .widget-subhead-count strong,
+  .widget-movie-highlight strong {
+    color: #38bdf8;
+  }
+
+  .widget-pill-badge {
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.15);
+    border-color: rgba(56, 189, 248, 0.3);
+  }
+
+  .highlight-roi.positive strong {
+    color: #34d399;
+  }
+
+  .highlight-roi.negative strong {
+    color: #f87171;
+  }
+
+  .highlight-score strong {
+    color: #fbbf24;
+  }
+}

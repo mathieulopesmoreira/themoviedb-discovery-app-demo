@@ -25,7 +25,7 @@
     "prepare": "husky",
     "lint": "oxlint -c oxlint.config.ts .",
     "lint:fix": "oxlint -c oxlint.config.ts --fix .",
-    "fmt": "oxfmt",
+    "fmt": "oxfmt --no-error-on-unmatched-pattern",
     "fmt:check": "oxfmt --check"
   },
   "dependencies": {

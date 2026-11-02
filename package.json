@@ -1,6 +1,6 @@
 {
   "name": "themoviedb-discovery-app",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "keywords": [],
   "homepage": "https://github.com/mathieulopesmoreira/themoviedb-discovery-app-demo#readme",
@@ -21,6 +21,7 @@
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:client": "vite",
     "dev:server": "tsx watch src/back-end/index.ts",
+    "cli": "tsx src/back-end/backend-cli.ts",
     "prepare": "husky",
     "lint": "oxlint -c oxlint.config.ts .",
     "lint:fix": "oxlint -c oxlint.config.ts --fix .",
@@ -28,6 +29,8 @@
     "fmt:check": "oxfmt --check"
   },
   "dependencies": {
+    "commander": "^15.0.0",
+    "csv-parse": "^7.0.3",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "react": "^19.3.0",

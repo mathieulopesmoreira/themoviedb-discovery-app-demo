@@ -1,0 +1,118 @@
+.dashboard-container {
+  width: 100%;
+  min-height: calc(100vh - 140px);
+  padding: 2.5rem 1.5rem 4rem 1.5rem;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #fefbf3 0%, #f1f8fc 50%, #e6f6f5 100%);
+  display: flex;
+  justify-content: center;
+}
+
+.dashboard-content {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.dashboard-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.dashboard-section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dashboard-icon-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dashboard-icon-badge.film-badge {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.dashboard-icon-badge.genre-badge {
+  background: #ccfbf1;
+  color: #0f766e;
+}
+
+.dashboard-section-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+.dashboard-section-subtitle {
+  margin: 0.2rem 0 0 0;
+  font-size: 0.95rem;
+  color: #64748b;
+}
+
+.dashboard-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.dashboard-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .dashboard-grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .dashboard-grid-4,
+  .dashboard-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-container {
+    padding: 1.5rem 1rem 3rem 1rem;
+  }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .dashboard-container {
+    background: linear-gradient(135deg, #090e17 0%, #0c1424 50%, #0d1e24 100%);
+  }
+
+  .dashboard-section-title {
+    color: #f8fafc;
+  }
+
+  .dashboard-section-subtitle {
+    color: #94a3b8;
+  }
+
+  .dashboard-icon-badge.film-badge {
+    background: rgba(37, 99, 235, 0.2);
+    color: #60a5fa;
+  }
+
+  .dashboard-icon-badge.genre-badge {
+    background: rgba(13, 148, 136, 0.2);
+    color: #2dd4bf;
+  }
+}
